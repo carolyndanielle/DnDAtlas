@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="assets/style.css" />
+		<title>Class</title>
+	</head> <!-- this contains language defining information and the link to bootstrap and our custom styling -->
+
+	<!-- all Class attributes handle bootstrap and custom styling -->
+	<body class="background"><!-- body of the page, basically the content section of the browser window -->
+
+		<header>
+			<div class="container magic p-3">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h1 class="text-light text-center">Character Maker</h1>
+					</div>
+					<div class="col-4 d-grid gap-2 d-md-block">
+                        <!-- this will return user to account dashboard -->
+                        <a href="account.html"><button type="button" class="btn btn-lg btn-secondary" id="dashReturn">Dashboard</button></a>
+                        <!-- this will sign out of the user's account and return home page -->
+                        <a href="index.html"><button type="button" class="btn btn-lg btn-danger" id="signOut">Sign Out</button></a>
+                    </div>
+				</div>
+			</div>
+		</header>
+
+		<!-- this was where the character name input used to be. its left in here for spacing -->
+		<section class="mt-3">
+			<div class="container w-25 p-5"></div>
+		</section>
+
+		<section class="mt-3">
+			<div class="container seeThrough w-25 p-3">
+				<h2 class="text-center mb-4">Available Classes</h2>
+
+				<!-- Cleric Accordion -->
+				<div class="accordion accordion-flush mb-4" id="class1">
+					<div class="accordion-item">
+						<div class="row g-0">
+
+							<!-- cleric icon -->
+							<div class="col-md-2">
+								<img src="assets/images/clericIcon.png" class="img-thumbnail rounded-start" alt=""/>
+							</div>
+							
+							<!-- opens cleric modal -->
+							<button
+                                    class="col-md-10 fs-1"
+									type="button"
+									data-bs-toggle="modal"
+									data-bs-target="#cleric">
+								<h2
+									class="accordion-header"
+									id="flush-heading-One"
+								>
+								Cleric
+								</h2>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Fighter Accordion -->
+				<div class="accordion accordion-flush mb-4" id="class2">
+					<div class="accordion-item">
+						<div class="row g-0">
+
+							<!-- fighter icon -->
+							<div class="col-md-2">
+								<img src="assets/images/fighterIcon.jpg" class="img-thumbnail rounded-start" alt=""/>
+							</div>
+
+							<!-- opens fighter modal -->
+							<button
+								class="col-md-10 fs-1"
+								type="button"
+								data-bs-toggle="modal"
+								data-bs-target="#fighter"
+							>
+								<h2 class="accordion-header" id="flush-heading-Two">
+									Fighter
+								</h2>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Rogue Accordion -->
+				<div class="accordion accordion-flush mb-4" id="classes">
+					<div class="accordion-item">
+						<div class="row g-0">
+
+							<!-- rogue icon -->
+							<div class="col-md-2">
+								<img src="assets/images/rogueIcon.png" class="img-thumbnail rounded-start" alt=""/>
+							</div>
+
+							<!-- opens rogue modal -->
+							<button
+                                    class="col-md-10 fs-1"
+									type="button"
+									data-bs-toggle="modal"
+									data-bs-target="#rogue">
+								<h2
+									class="accordion-header"
+									id="flush-headingThree"
+								>
+								Rogue
+								</h2>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Wizard Accordion -->
+				<div class="accordion accordion-flush mb-4" id="classes">
+					<div class="accordion-item">
+						<div class="row g-0">
+
+							<!-- wizard icon -->
+							<div class="col-md-2">
+								<img src="assets/images/wizardIcon.png" class="img-thumbnail rounded-start" alt=""/>
+							</div>
+
+							<!-- opens wizard modal -->
+							<button
+                                    class="col-md-10 fs-1"
+									type="button"
+									data-bs-toggle="modal"
+									data-bs-target="#wizard">
+								<h2
+									class="accordion-header"
+									id="flush-headingFour"
+								>
+								Wizard
+								</h2>
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+
+		<!-- Cleric Modal -->
+		<div class="modal fade"	id="cleric"	tabindex="-1" aria-labelledby="clericLabel"	aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="clericLabel">Cleric</h5>
+					</div>
+
+					<!-- class features by level -->
+					<div class="modal-body">
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 1:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Divine Domain (subclass)</p>
+                                <p>-Spellcasting</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 2:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Channel Divinity (x1)</p>
+                                <p>-Divine Domain Feature</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 3:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-2nd level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 4:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 5:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Destroy Undead (CR 1/2)</p>
+                                <p>-3rd level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 6:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Channel Divinity (x2)</p>
+                                <p>-Divine Domain Feature</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 7:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-4th level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 8:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+                                <p>-Destroy Undead (CR 1)</p>
+                                <p>-Divine Domain Feature</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 9:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-5th level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 10:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Divine Intervention</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 11:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Destroy Undead (CR 2)</p>
+                                <p>-6th level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 12:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="modal-footer">
+						<!-- closes modal -->
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+						<!-- this will select cleric as the character class -->
+						<a href="features.html">
+							<button type="button" id="clericSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Fighter Modal -->
+		<div class="modal fade" id="fighter" tabindex="-1" aria-labelledby="fighterLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="fighterLabel">Fighter</h5>
+					</div>
+
+					<!-- class features by level -->
+					<div class="modal-body">
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 1:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Fighting Style</p>
+                                <p>-Second Wind</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 2:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Action Surge</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 3:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Martial Archetype (subclass)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 4:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 5:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Extra Attack (x1)</p>
+							</div>
+						</div>
+                        
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 6:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 7:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Martial Archetype feature</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 8:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 9:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Indomitable (x1)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 10:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Martial Archetype feature</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 11:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Extra Attack (x2)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 12:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="modal-footer">
+						<!-- closes modal -->
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+
+						<!-- this selects fighter as the character class -->
+						<a href="features.html">
+							<button type="button" id="fighterSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Rogue Modal -->
+		<div class="modal fade" id="rogue" tabindex="-1" aria-labelledby="rogueLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="rogueLabel">Rogue</h5>
+					</div>
+
+					<!-- class features by level -->
+					<div class="modal-body">
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 1:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Expertise</p>
+                                <p>-Sneak Attack (1d6)</p>
+                                <p>-Thieve's Cant</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 2:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Cunning Action</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 3:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Roguish Archetype (subclass)</p>
+								<p>-Sneak Attack (2d6)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 4:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 5:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Uncanny Dodge</p>
+								<p>-Sneak Attack (3d6)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 6:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Additional Expertise</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 7:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Evasion</p>
+								<p>-Sneak Attack (4d6)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 8:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 9:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Roguish Archetype feature</p>
+								<p>-Sneak Attack (5d6)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 10:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 11:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Reliable Talent</p>
+								<p>-Sneak Attack (6d6)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 12:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="modal-footer">
+						<!-- closes modal -->
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+
+						<!-- this will select rogue as the character class -->
+						<a href="features.html">
+							<button type="button" id="fighterSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Wizard Modal -->
+		<div class="modal fade"	id="wizard"	tabindex="-1" aria-labelledby="wizardLabel"	aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="wizardLabel">Wizard</h5>
+					</div>
+
+					<!-- class features by level -->
+					<div class="modal-body">
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 1:</strong></p>
+							</div>
+							<div class="col-9">
+                                <p>-Spellcasting</p>
+								<p>-Arcane Recovery</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 2:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Arcane Tradition (subclass)</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 3:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-2nd level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 4:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 5:</strong></p>
+							</div>
+							<div class="col-9">
+                                <p>-3rd level spells</p>
+							</div>
+						</div>
+                        
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 6:</strong></p>
+							</div>
+							<div class="col-9">
+                                <p>-Arcane Tradition feature</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 7:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-4th level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 8:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 9:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-5th level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 10:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Arcane Tradition feature</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 11:</strong></p>
+							</div>
+							<div class="col-9">
+                                <p>-6th level spells</p>
+							</div>
+						</div>
+
+						<div class="row m-2 p-2 border border-dark fs-5">
+							<div class="col-3">
+								<p><strong>Level 12:</strong></p>
+							</div>
+							<div class="col-9">
+								<p>-Ability Score Improvement</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<!-- closes modal -->
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+
+						<!-- this will select wizard as the character class -->
+						<a href="features.html">
+							<button type="button" id="clericSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

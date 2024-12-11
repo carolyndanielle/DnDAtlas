@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+                integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+                crossorigin="anonymous"
+            />
+            <link rel="stylesheet" href="assets/style.css" />
+        <title>Character</title>
+    </head> <!-- this contains language defining information and the link to bootstrap and our custom styling -->
+
+    <!-- all Class attributes handle bootstrap and custom styling -->
+	<body class="background"><!-- body of the page, basically the content section of the browser window -->
+
+        <header>
+			<div class="container magic p-3">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h1 id="character" class="text-light text-center">>character name<</h1>
+					</div>
+					<div class="col-4 d-grid gap-2 d-md-block">
+                        <!-- this will return user to account dashboard -->
+                        <a href="account.html"><button type="button" class="btn btn-lg btn-secondary" id="dashReturn">Dashboard</button></a>
+                        <!-- this will sign out of the user's account and return home page -->
+                        <a href="index.html"><button type="button" class="btn btn-lg btn-danger" id="signOut">Sign Out</button></a>
+                    </div>
+				</div>
+			</div>
+		</header>
+
+        <section class="mt-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Race:</strong></div>
+                            <!-- this should be were the race chosen is displayed -->
+                            <div id="raceChoice" class="col fs-3 border border-dark"></div> 
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Class:</strong></div>
+                            <!-- this should be were the class chosen is displayed -->
+                            <div id="classChoice" class="col fs-3 border border-dark"></div> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row p-1">
+                            <div class="col input-group input-group-lg p-2">
+                                <!-- this is a level selector to allow the character to change level as they go through their campaign -->
+                                <label class="input-group-text" for="inputGroupSelect01"><strong>Character Level:</strong></label>
+                                <select name="levels" id="inputGroupSelect01" class="form-select text-center">
+                                    <option selected>1</option>
+                                    <option value="1">2</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                    <option value="4">5</option>
+                                    <option value="5">6</option>
+                                    <option value="6">7</option>
+                                    <option value="7">8</option>
+                                    <option value="8">9</option>
+                                    <option value="9">10</option>
+                                    <option value="10">11</option>
+                                    <option value="11">12</option>
+                                </select>
+                            </div>
+                            <!-- this will actually change the level of the character which will change the features displayed in the features tabs -->
+                            <button type="button" class="col-4 m-3 btn btn-warning">Change Level</button>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>HP:</strong></div>
+                            <!-- this is where the character's hit points will be displayed and should change with character level changes -->
+                            <div id="hp" class="col border border-dark fs-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Str:</strong></div>
+                            <!-- this will be were the character's strength score is displayed -->
+                            <div id="str" class="col fs-3 border border-dark"></div>
+                        </div>
+                        <div class="row text-center p-3">
+                            <div class="col fs-3">mod:</div>
+                            <!-- this will be were the character's strength modifier is displayed -->
+                            <div id="strMod" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Dex:</strong></div>
+                            <!-- this will be were the character's dexterity score is displayed -->
+                            <div id="dex" class="col fs-3 border border-dark"></div>
+                        </div>
+                        <div class="row text-center p-3">
+                            <div class="col fs-3">mod:</div>
+                            <!-- this will be were the character's dexterity modifier is displayed -->
+                            <div id="dexMod" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Con:</strong></div>
+                            <!-- this will be were the character's constitution score is displayed -->
+                            <div id="con" class="col fs-3 border border-dark"></div>
+                        </div>
+                        <div class="row text-center p-3">
+                            <div class="col fs-3">mod:</div>
+                            <!-- this will be were the character's constitution modifier is displayed -->
+                            <div id="conMod" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Int:</strong></div>
+                            <!-- this will be were the character's intelligence score is displayed -->
+                            <div id="int" class="col fs-3 border border-dark"></div>
+                        </div>
+                        <div class="row text-center p-3">
+                            <div class="col fs-3">mod:</div>
+                            <!-- this will be were the character's intelligence modifier is displayed -->
+                            <div id="intMod" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Wis:</strong></div>
+                            <!-- this will be were the character's wisdom score is displayed -->
+                            <div id="wis" class="col fs-3 border border-dark"></div>
+                        </div>
+                        <div class="row text-center p-3">
+                            <div class="col fs-3">mod:</div>
+                            <!-- this will be were the character's wisdom modifier is displayed -->
+                            <div id="wisMod" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Cha:</strong></div>
+                            <!-- this will be were the character's charisma score is displayed -->
+                            <div id="cha" class="col fs-3 border border-dark"></div>
+                        </div>
+                        <div class="row text-center p-3">
+                            <div class="col fs-3">mod:</div>
+                            <!-- this will be were the character's charisma modifier is displayed -->
+                            <div id="chaMod" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row fs-5">
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center">
+                            <div class="col"><strong>Skills:</strong></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Athletics:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center">
+                            <div class="col"><strong>Skills:</strong></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Acrobatics:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Sleight of Hand:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Stealth:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center">
+                            <div class="col"><strong>Skills:</strong></div>
+                        </div>
+                        <!-- Constitution doesn't have any skill associated with it -->
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center">
+                            <div class="col"><strong>Skills:</strong></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Arcana:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">History:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Investigation:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Nature:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Religion:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center">
+                            <div class="col"><strong>Skills:</strong></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Animal Handling:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Insight:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Medicine:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Perception:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Survival:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center">
+                            <div class="col"><strong>Skills:</strong></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Deception:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Intimidation:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Performance:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-8" style="font-size: 13px;">Persuasion:</div>
+                            <!-- this will be were the character's modifier for this skill is displayed -->
+                            <div id="chaMod" class="col-4 border border-dark"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- this section is for the various features to be displayed -->
+        <section class="mt-3">
+            <div class="container seeThrough p-3">
+                <h2 class="text-center mb-4 border-bottom border-dark">Features</h2>
+
+                <!-- this is the list of tabs to select which type of features or spells to look at -->
+                <ul class="nav nav-tabs parchment" id="myTab" role="tablist">
+                    <!-- race feature tab -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="race-tab" data-bs-toggle="tab" data-bs-target="#raceFeatures" type="button" role="tab" aria-controls="raceFeatures" aria-selected="true">Race Features</button>
+                    </li>
+                    <!-- class feature tab -->
+                    <li class="nav-item">
+                        <button class="nav-link" id="class-tab" data-bs-toggle="tab" data-bs-target="#classFeatures" type="button" role="tab" aria-controls="classFeatures" aria-selected="false">Class Features</button>
+                    </li>
+                    <!-- spells tab (will be empty if class has no spells) -->
+                    <li class="nav-item">
+                        <button class="nav-link" id="spell-tab" data-bs-toggle="tab" data-bs-target="#spells" type="button" role="tab" aria-controls="spells" aria-selected="true">Spells</button>
+                    </li>
+                </ul>
+
+                <!-- this is the actual tab display area -->
+                <div class="tab-content" id="myTabContent">
+
+                    <!-- this is the race feature tab -->
+                    <div class="tab-pane fade show active" id="raceFeatures" role="tabpanel" aria-labelledby="race-tab">
+                        <!-- these are the template for a feature in the tab -->
+                        <!-- start template -->
+                        <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div>
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                    </div>
+
+                    <!-- this is the class feature tab -->
+                    <div class="tab-pane fade" id="classFeatures" role="tabpanel" aria-labelledby="class-tab">
+                        <!-- these are the template for a feature in the tab -->
+                        <!-- start template -->
+                        <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div>
+                        <!-- end template -->
+
+                        
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                    </div>
+
+                    <!-- this is the spell list tap -->
+                    <div class="tab-pane fade" id="spells" role="tabpanel" aria-labelledby="spell-tab">
+                        <!-- these are the template for a spell in the tab -->
+                        <!-- start template -->
+                        <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Spell Name</div>
+                            <div class="col-10">Spell Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div>
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Spell Name</div>
+                            <div class="col-10">Spell Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Spell Name</div>
+                            <div class="col-10">Spell Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mt-3">
+            
+            <div class="container seeThrough p-3">
+
+                <div class="row">
+                    <!-- this is the text entry for inventory items -->
+                    <div class="col form-floating">
+                        <textarea class="form-control w-50" placeholder="Add Item Here" id="floatingTextarea1" style="height: 100px"></textarea>
+                        <label for="floatingTextarea1">Add Inventory Item</label>
+
+                        <!-- this button adds an inventory item to the list -->
+                        <button type="button" class="btn btn-success" id="addInventory">Add to Inventory</button>
+                        <!-- this button will remove checked items for the list -->
+                        <button type="button" class="btn btn-danger" id="removeInventory">Remove Checked</button>
+                    </div>
+                    
+                    <!-- this is the text entry for notes -->
+                    <div class="col form-floating">
+                        <textarea class="form-control" placeholder="Add Note Here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Add Notes</label>
+
+                        <!-- this button adds a note to the list -->
+                        <button type="button" class="btn btn-success">Add to Notes</button>
+                        <!-- this button removes a checked note from the list -->
+                        <button type="button" class="btn btn-danger" id="removeNote">Remove Checked</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- the list of inventory items -->
+                    <div class="col bg-light m-3">
+                        <h2 class="text-center mb-4 border-bottom border-dark">Inventory</h2>
+
+                        <div>
+                            <!-- this is where inventory items will be displayed -->
+                            <ul class="list-group list-group-horizontal-sm row row-cols-1 row-cols-md-4 g-4" id="inventory">
+                                <!-- these are the templates for items -->
+                                <!-- start template -->
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                    Long Sword
+                                </li>
+                                <!-- end template -->
+
+                                <!-- start template -->
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                    Chain Mail
+                                </li>
+                                <!-- end template -->
+
+                                <!-- start template -->
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                    Spell Book
+                                </li>
+                                <!-- end template -->
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- the list of notes -->
+                    <div class="col bg-light m-3">
+                        <h2 class="text-center mb-4 border-bottom border-dark">Notes</h2>
+
+                        <div>
+                            <!-- this is where notes will be displayed -->
+                            <ul class="list-group" id="notes">
+                                <!-- these are the templates for notes -->
+                                <!-- start template -->
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                    Worships the Dawn Father
+                                </li>
+                                <!-- end template -->
+
+                                <!-- start template -->
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                    Born a Noble of the kingdom of Zor but was framed for a crime a rival noble committed and exiled on pain of death
+                                </li>
+                                <!-- end template -->
+
+                                <!-- start template -->
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                    Loves chocolate pastries
+                                </li>
+                                <!-- end template -->
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+
+
+        <script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+    </body>
+</html>

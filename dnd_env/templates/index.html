@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link
+				href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+				rel="stylesheet"
+				integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+				crossorigin="anonymous"
+			/>
+		<link rel="stylesheet" href="assets/style.css" />
+		<title>Building Character</title>
+	</head> <!-- this contains language defining information and the link to bootstrap and our custom styling -->
+
+	<!-- all Class attributes handle bootstrap and custom styling -->
+	<body class="background"><!-- body of the page, basically the content section of the browser window -->
+
+		<header><!-- contains app name and navigation buttons -->
+			<div class="container magic p-3">
+				<div class="row align-items-center">
+					<!-- Name of app -->
+					<div class="col-7">
+						<h1 class="text-light text-center">Building Character</h1>
+					</div>
+					<div class="col-5 d-grid gap-2 d-md-block">
+						<!-- opens sign-in modal by targeting the modal's id "signIn" -->
+						<button type="button" class="btn btn-lg liteMagic" data-bs-toggle="modal" data-bs-target="#signIn">
+							Sign In
+						</button>
+
+						<!-- opens create account modal by targeting the modal's id "create" -->
+						<button type="button" class="btn btn-lg liteMagic" data-bs-toggle="modal" data-bs-target="#create">
+							Create Account
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+		<!-- Hype section -->
+		<section class="container mt-3 p-5 w-75 text-center fs-4 seeThrough">
+			<div>
+				<div>
+					<h2 class="h1">Build a D&D Character!</h2>
+					<h3>Creating a D&D character can be overwhelming</h3>
+					<p>With this application, you will be able to create a Dungeons and Dragons character from a list of predetermined options, allowing you to jump in to your next campaign as quickly as possible! This is a work in progress, so please keep looking back for added functionality and customization options.</p></strong>
+					<p>You may use this application to quickly generate a D&D character at any time. However, you will not be able to save any characters unless you create an account and sign in to it.</p></strong>
+				</div>
+
+				<div class="row">
+					<div class="col-4"></div>
+					<!-- this allows use of character creator without an account -->
+					<a href="races.html" class="col-4 btn btn-success btn-lg w-25" id="noAccount">Create Character</a>
+					<div class="col-4"></div>
+				</div>
+			</div>
+		</section>
+		
+
+		<!-- gives us credit for making this app and credits the artist of the background pic -->
+		<footer>
+			<div class="container text-center">
+				<p>
+					created by Daniel, Carolyn, and Patrick <br>
+					<a href="https://www.freepik.com/free-vector/set-three-mythology-creatures_25590555.htm#query=dungeons%20and%20dragons&position=0&from_view=keyword&track=ais_hybrid&uuid=9697696c-fa0e-4cdc-bcff-68ce89ea9d17">Image by gstudioimagen1</a> on Freepik
+				</p>
+			</div>
+		</footer>
+
+
+		<!-- Sign In Modal -->
+		<!-- 
+			the sign in button targets this html via the id "signIn"
+			all attributes in these sections are bootstrap specific for styling and javascript behavior
+		-->
+		<div
+			class="modal fade"
+			id="signIn"
+			tabindex="-1"
+			aria-labelledby="signInLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="signInLabel">Sign In</h5><!-- this is the title within the modal -->
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="user-name" class="col-form-label">
+									User Name:
+								</label>
+								<!-- this is the input for taking in user name for sign in -->
+								<input type="text" class="form-control" id="user-name-sign">
+							</div>
+
+							<div class="mb-3">
+								<label for="password" class="col-form-label">
+									Password:
+								</label>
+								<!-- this is the input for taking in password for sign in -->
+								<input type="text" class="form-control" id="password-sign">
+							</div>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<!-- this button closes the modal -->
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<!-- this button is the actual sign in button -->
+						<button type="submit" class="btn btn-primary" id="logIn">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Create Account Modal -->
+		<!-- 
+			the sign in button targets this html via the id "create"
+			all attributes in these sections are bootstrap specific for styling and javascript behavior
+		-->
+		<div
+			class="modal fade"
+			id="create"
+			tabindex="-1"
+			aria-labelledby="createLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<h5 class="modal-title" id="createLabel">Create Account</h5><!-- this is the title within the modal -->
+					</div>
+
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="email" class="col-form-label">
+									Email:
+								</label>
+								<!-- this is the input for taking an email for a new account -->
+								<input type="email" class="form-control" id="email">
+							</div>
+
+							<div class="mb-3">
+								<label for="user-name" class="col-form-label">
+									User Name:
+								</label>
+								<!-- this is the input for taking in a new user name -->
+								<input type="text" class="form-control" id="user-name">
+							</div>
+
+							<div class="mb-3">
+								<label for="password" class="col-form-label">
+									Password:
+								</label>
+								<!-- this is the input for taking in a new password -->
+								<input type="text" class="form-control" id="password">
+							</div>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<!-- this button closes the modal -->
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<!-- this button will create a new account -->
+						<button type="submit" class="btn btn-primary" id="createAccount">Create</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- this is the link to bootstrap's javascript for controlling the different buttons and tabs and such -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+                integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+                crossorigin="anonymous"
+            />
+            <link rel="stylesheet" href="assets/style.css" />
+        <title>Features</title>
+    </head> <!-- this contains language defining information and the link to bootstrap and our custom styling -->
+
+    <!-- all Class attributes handle bootstrap and custom styling -->
+	<body class="background"><!-- body of the page, basically the content section of the browser window -->
+
+        <header>
+			<div class="container magic p-3">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h1 class="text-light text-center">Character Maker</h1>
+					</div>
+					<div class="col-4 d-grid gap-2 d-md-block">
+                        <!-- this will return user to account dashboard -->
+                        <a href="account.html"><button type="button" class="btn btn-lg btn-secondary" id="dashReturn">Dashboard</button></a>
+                        <!-- this will sign out of the user's account and return home page -->
+                        <a href="index.html"><button type="button" class="btn btn-lg btn-danger" id="signOut">Sign Out</button></a>
+                    </div>
+				</div>
+			</div>
+		</header>
+
+        <!-- this is were the character's name will be entered -->
+        <section class="mt-3">
+			<div class="container liteMagic w-25 p-3">
+				<form action="">
+					<label for="charName" class="col-form-label lead fs-5">
+						Character Name:
+					</label>
+					<input type="text" class="form-control" id="charName" /> <!-- this should be were the character's name will be pulled from -->
+				</form>
+			</div>
+		</section>
+
+        <!-- character choice displays -->
+        <section id="characterChoices" class="mt-3">
+            <div class="container">
+                <!-- race and class displays -->
+                <div class="row align-items-center">
+
+                    <!-- race selection area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Race:</strong></div>
+                            <!-- this should be were the race selection is displayed -->
+                            <div id="raceChoice" class="col fs-5 border border-dark"></div>
+                            <!-- this button will allow user to change race selection via modal -->
+                            <button type="button" class="col btn btn-warning ms-5" data-bs-toggle="modal" data-bs-target="#editRaceModal">
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- class selection area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Class:</strong></div>
+                            <!-- this should be were the class selection is displayed -->
+                            <div id="classChoice" class="col fs-5 border border-dark"></div>
+                            <!-- this button will allow user to change class selection via modal -->
+                            <button type="button" class="col btn btn-warning ms-5" data-bs-toggle="modal" data-bs-target="#editClassModal">
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- starting level selection and hp display -->
+                <div class="row align-items-center">
+                    <!-- character level selector -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row p-1">
+                            <div class="input-group input-group-lg p-2"> <!-- this is the level selector. listed class features should change based on what number is selected -->
+                                <label class="input-group-text ms-5 me-3" for="inputGroupSelect01"><strong>Starting Level:</strong></label>
+                                <select name="levels" id="inputGroupSelect01" class="form-select ms-3 me-5">
+                                    <option selected>1</option>
+                                    <option value="1">2</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                    <option value="4">5</option>
+                                    <option value="5">6</option>
+                                    <option value="6">7</option>
+                                    <option value="7">8</option>
+                                    <option value="8">9</option>
+                                    <option value="9">10</option>
+                                    <option value="10">11</option>
+                                    <option value="11">12</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- hp display area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col-4 fs-3"><strong>HP:</strong></div>
+                            <!-- this is where the character's hit points will be displayed -->
+                            <div id="hp" class="col border border-dark fs-3 ms-3 me-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- stat display areas -->
+                <div class="row">
+                    <!-- str display area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Str:</strong></div>
+                            <!-- this will be were the character's strength score is displayed -->
+                            <div id="str" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <!-- dex display area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Dex:</strong></div>
+                            <!-- this will be were the character's dexterity score is displayed -->
+                            <div id="dex" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <!-- con display area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Con:</strong></div>
+                            <!-- this will be were the character's constitution score is displayed -->
+                            <div id="con" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <!-- int display area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Int:</strong></div>
+                            <!-- this will be were the character's intelligence score is displayed -->
+                            <div id="int" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <!-- wis display area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Wis:</strong></div>
+                            <!-- this will be were the character's wisdom score is displayed -->
+                            <div id="wis" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+
+                    <!-- cha display area -->
+                    <div class="col m-1 bg-light border">
+                        <div class="row text-center p-3">
+                            <div class="col fs-3"><strong>Cha:</strong></div>
+                            <!-- this will be were the character's charisma score is displayed -->
+                            <div id="cha" class="col fs-3 border border-dark"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- button that actually creates the character "file" -->
+        <section class="mt-3">
+			<div class="container w-25">
+				<div class="row align-items-center">
+					<a href="character.html" class="btn btn-success border m-3 p-3" id="createTheCharacter">
+						<div class="fs-3">Create Character</div>
+					</a>
+				</div>
+			</div>
+		</section>
+
+        <!-- this section is for the various features to be displayed -->
+        <section class="mt-3">
+            <div class="container seeThrough p-3">
+                <h2 class="text-center mb-4 border-bottom border-dark">Features</h2>
+
+                <!-- this is the list of tabs to select which type of features or spells to look at -->
+                <ul class="nav nav-tabs parchment" id="myTab" role="tablist">
+                    <!-- race feature tab -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="race-tab" data-bs-toggle="tab" data-bs-target="#raceFeatures" type="button" role="tab" aria-controls="raceFeatures" aria-selected="true">Race Features</button>
+                    </li>
+                    <!-- class feature tab -->
+                    <li class="nav-item">
+                        <button class="nav-link" id="class-tab" data-bs-toggle="tab" data-bs-target="#classFeatures" type="button" role="tab" aria-controls="classFeatures" aria-selected="false">Class Features</button>
+                    </li>
+                    <!-- spells tab (will be empty if class has no spells) -->
+                    <li class="nav-item">
+                        <button class="nav-link" id="spell-tab" data-bs-toggle="tab" data-bs-target="#spells" type="button" role="tab" aria-controls="spells" aria-selected="true">Spells</button>
+                    </li>
+                </ul>
+
+                <!-- this is the actual tab display area -->
+                <div class="tab-content" id="myTabContent">
+
+                    <!-- this is the race feature tab -->
+                    <div class="tab-pane fade show active" id="raceFeatures" role="tabpanel" aria-labelledby="race-tab">
+                        <!-- these are the template for a feature in the tab -->
+                        <!-- start template -->
+                        <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div>
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                    </div>
+
+                    <!-- this is the class feature tab -->
+                    <div class="tab-pane fade" id="classFeatures" role="tabpanel" aria-labelledby="class-tab">
+                        <!-- these are the template for a feature in the tab -->
+                        <!-- start template -->
+                        <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div>
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Feature Name</div>
+                            <div class="col-10">Feature Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                    </div>
+
+                    <!-- this is the spell list tap -->
+                    <div class="tab-pane fade" id="spells" role="tabpanel" aria-labelledby="spell-tab">
+                        <!-- these are the template for a spell in the tab -->
+                        <!-- start template -->
+                        <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Spell Name</div>
+                            <div class="col-10">Spell Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div>
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Spell Name</div>
+                            <div class="col-10">Spell Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                        <!-- start template -->
+                        <!-- <div class="row m-3 p-2 liteMagic border border-dark text-center fs-3">
+                            <div class="col-2 border-end border-dark">Spell Name</div>
+                            <div class="col-10">Spell Description <br> This is just placeholder text.. this area is where the description should be displayed</div>
+                        </div> -->
+                        <!-- end template -->
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- edit race modal -->
+        <div class="modal fade" id="editRaceModal" tabindex="-1" aria-labelledby="editRaceModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- modal title -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editRaceModalLabel">Edit Race</h5>
+                    </div>
+
+                    <!-- race choices -->
+                    <div class="modal-body">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-info" type="button">Hill Dwarf</button>
+                            <button class="btn btn-info" type="button">Mountain Dwarf</button>
+                            <button class="btn btn-info" type="button">High Elf</button>
+                            <button class="btn btn-info" type="button">Wood Elf</button>
+                            <button class="btn btn-info" type="button">Half-Elf</button>
+                            <button class="btn btn-info" type="button">Human</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <!-- closes modal -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- this button saves the new race to character selection -->
+                        <button type="button" class="btn btn-primary">Save Change</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- edit class modal -->
+        <div class="modal fade" id="editClassModal" tabindex="-1" aria-labelledby="editClassModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- modal title -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editClassModalLabel">Edit Class</h5>
+                    </div>
+
+                    <!-- class choices -->
+                    <div class="modal-body">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-info" type="button">Cleric</button>
+                            <button class="btn btn-info" type="button">Fighter</button>
+                            <button class="btn btn-info" type="button">Rogue</button>
+                            <button class="btn btn-info" type="button">Wizard</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <!-- closes modal -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- this button saves the new class to character selection -->
+                        <button type="button" class="btn btn-primary" id="changeClass">Change</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+    </body>
+</html>

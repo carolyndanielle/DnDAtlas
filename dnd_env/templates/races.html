@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="assets/style.css" />
+		<title>Race</title>
+	</head> <!-- this contains language defining information and the link to bootstrap and our custom styling -->
+
+	<!-- all Class attributes handle bootstrap and custom styling -->
+	<body class="background"><!-- body of the page, basically the content section of the browser window -->
+
+		<header>
+			<div class="container magic p-3">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h1 class="text-light text-center">Character Maker</h1>
+					</div>
+					<div class="col-4 d-grid gap-2 d-md-block">
+                        <!-- this will return user to account dashboard -->
+                        <a href="account.html"><button type="button" class="btn btn-lg btn-secondary" id="dashReturn">Dashboard</button></a>
+                        <!-- this will sign out of the user's account and return home page -->
+                        <a href="index.html"><button type="button" class="btn btn-lg btn-danger" id="signOut">Sign Out</button></a>
+                    </div>
+				</div>
+			</div>
+		</header>
+
+		<!-- this was where the character name input used to be. its left in here for spacing -->
+		<section class="mt-3">
+			<div class="container w-25 p-5"></div>
+		</section>
+
+		<section class="mt-3">
+			<div class="container seeThrough w-25 p-3">
+				<!-- section name -->
+				<h2 class="text-center mb-4">Available Races</h2>
+
+				<!-- Dwarf Accordion -->
+				<div class="accordion accordion-flush m-3" id="races">
+					<div class="accordion-item pt-2">
+						<div class="row">
+							<div class="col-2">
+								<img src="assets/images/dwarf.png" alt="" class="race-img" />
+							</div>
+							<div class="col-10">
+								<h2 class="accordion-header" id="flush-headingOne">
+									<!-- opens accordion of dwarf subrace options -->
+									<button
+										class="accordion-button collapsed fs-1"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#dwarves"
+									>
+										Dwarf(2)
+									</button>
+								</h2>
+								<div
+									id="dwarves"
+									class="accordion-collapse collapse"
+									data-bs-parent="#races"
+								>
+									<div class="accordion-body">
+										<!-- opens hill dwarf modal by targeting "hill" id -->
+										<a href="#" class="fs-3">
+											<div data-bs-toggle="modal" data-bs-target="#hill">
+												Hill
+											</div>
+										</a>
+									</div>
+									<div class="accordion-body">
+										<!-- opens mountain dwarf modal by targeting "mountain" id -->
+										<a href="#" class="fs-3">
+											<div data-bs-toggle="modal" data-bs-target="#mountain">
+												Mountain
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Elf Accordion -->
+				<div class="accordion accordion-flush m-3" id="races">
+					<div class="accordion-item pt-2">
+						<div class="row">
+							<div class="col-2">
+                                <img src="assets/images/elf.png" alt="" class="race-img">
+                            </div>
+							<div class="col-10">
+								<h2 class="accordion-header" id="flush-headingTwo">
+									<!-- opens accordion of elf subrace options -->
+									<button
+										class="accordion-button collapsed fs-1"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#elfs"
+									>
+										Elf(2)
+									</button>
+								</h2>
+								<div
+									id="elfs"
+									class="accordion-collapse collapse"
+									data-bs-parent="#races"
+								>
+									<div class="accordion-body">
+										<!-- opens high elf modal by targeting "high" id -->
+										<a href="#" class="fs-3">
+											<div data-bs-toggle="modal" data-bs-target="#high">
+												High
+											</div>
+										</a>
+									</div>
+									<div class="accordion-body">
+										<!-- opens wood elf modal by targeting "wood" id -->
+										<a href="#" class="fs-3">
+											<div data-bs-toggle="modal" data-bs-target="#wood">
+												Wood
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Half-Elf Accordion -->
+				<!-- no accordion since there is one half-elf option -->
+				<div class="accordion accordion-flush m-3" id="races">
+					<div class="accordion-item row pt-2">
+                        <div class="col-2">
+                            <img src="assets/images/halfElf.png" alt="" class="race-img">
+                        </div>
+                        <div class="col-10">
+                            <h2
+                                class="accordion-header"
+                                id="flush-headingThree"
+                                data-bs-toggle="modal"
+                                data-bs-target="#halfElf"
+                            >
+								<!-- opens half-elf modal by targeting "hafElf" id -->
+                                <button
+                                    class="accordion-button collapsed fs-1"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#hafElf"
+                                >
+                                    Half-Elf
+                                </button>
+                            </h2>
+                        </div>
+					</div>
+				</div>
+
+				<!-- Human Accordion -->
+				<!-- no accordion since there is one human option -->
+				<div class="accordion accordion-flush m-3" id="races">
+					<div class="accordion-item row pt-2">
+                        <div class="col-2">
+                            <img src="assets/images/human.png" alt="" class="race-img">
+                        </div>
+                        <div class="col-10">
+                            <h2
+                                class="accordion-header"
+                                id="flush-headingFour"
+                                data-bs-toggle="modal"
+                                data-bs-target="#human"
+                            >
+								<!-- opens human modal by targeting "hman" id -->
+                                <button
+                                    class="accordion-button collapsed fs-1"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#hman"
+                                >
+                                    <div>Human</div>
+                                </button>
+                            </h2>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Hill Dwarf Modal -->
+		<div
+			class="modal fade"
+			id="hill"
+			tabindex="-1"
+			aria-labelledby="hillLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="hillLabel">Hill Dwarf</h5>
+					</div>
+
+					<div class="modal-body">
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Ability Score Increase:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your Constitution score increases by 2, and your Wisdom score
+									increases by 1.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Size:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your size is Medium.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Speed:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your base walking speed is 25 ft. Your speed is not reduced by
+									wearing heavy armor
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Darkvision:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You can see in dim light within 60 feet of you as if it were
+									bright light, and in darkness as if it were dim light. You
+									can't discern color in darkness, only shades of gray.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Dwarven Resilience:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have advantage on saving throws against poison, and you
+									have resistance against poison damage.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Dwarven Combat Training:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have proficiency with the battleaxe, handaxe, light
+									hammer, and warhammer.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Tool Proficiency:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You gain proficiency with the artisan's tools of your choice:
+									smith's tools, brewer's supplies, or mason's tools.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Stonecunning:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Whenever you make an Intelligence (History) check related to
+									the origin of stonework, you are considered proficient in the
+									History skill and add double your proficiency bonus to the
+									check, instead of your normal proficiency bonus.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Language:</strong></p>
+							</div>
+							<div class="col">
+								<p>You know Common and Dwarven.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Dwarven Toughness:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your hit point maximum increases by 1, and it increases by 1
+									every time you gain a level.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<!-- this will select hill dwarf as the character race -->
+						<a href="classes.html">
+							<button type="button" id="hillDwarfSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Mountain Dwarf Modal -->
+		<div
+			class="modal fade"
+			id="mountain"
+			tabindex="-1"
+			aria-labelledby="mountainLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="mountainLabel">Mountain Dwarf</h5>
+					</div>
+
+					<div class="modal-body">
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Ability Score Increase:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your Constitution score increases by 2, and your Strength
+									score increases by 2.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Size:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your size is Medium.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Speed:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your base walking speed is 25 ft. Your speed is not reduced by
+									wearing heavy armor
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Darkvision:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You can see in dim light within 60 feet of you as if it were
+									bright light, and in darkness as if it were dim light. You
+									can't discern color in darkness, only shades of gray.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Dwarven Resilience:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have advantage on saving throws against poison, and you
+									have resistance against poison damage.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Dwarven Combat Training:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have proficiency with the battleaxe, handaxe, light
+									hammer, and warhammer.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Tool Proficiency:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You gain proficiency with the artisan's tools of your choice:
+									smith's tools, brewer's supplies, or mason's tools.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Stonecunning:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Whenever you make an Intelligence (History) check related to
+									the origin of stonework, you are considered proficient in the
+									History skill and add double your proficiency bonus to the
+									check, instead of your normal proficiency bonus.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Language:</strong></p>
+							</div>
+							<div class="col">
+								<p>You know Common and Dwarven.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Dwarven Armor Training:</strong></p>
+							</div>
+							<div class="col">
+								<p>You have proficiency with light and medium armor.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<!-- this will select mountain dwarf as the character race -->
+						<a href="classes.html">
+							<button type="button" id="mountDwarfSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- High Elf Modal -->
+		<div
+			class="modal fade"
+			id="high"
+			tabindex="-1"
+			aria-labelledby="highLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="highLabel">High Elf</h5>
+					</div>
+
+					<div class="modal-body">
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Ability Score Increase:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your Dexterity score increases by 2, and your Intelligence
+									score increases by 1.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Size:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your size is Medium.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Speed:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your base walking speed is 30 ft.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Darkvision:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You can see in dim light within 60 feet of you as if it were
+									bright light, and in darkness as if it were dim light. You
+									can't discern color in darkness, only shades of gray.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Fey Ancestry:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have advantage on saving throws against being charmed, and
+									magic can't put you to sleep.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Trance:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Elves do not sleep. Instead they meditate deeply, remaining
+									semi-conscious, for 4 hours a day. After resting in this way,
+									you gain the same benefit a human would from 8 hours of sleep.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Keen Senses:</strong></p>
+							</div>
+							<div class="col">
+								<p>You have proficiency in the Perception skill.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Language:</strong></p>
+							</div>
+							<div class="col">
+								<p>You know Common and Elven.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Cantrip:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You know one cantrip of your choice from the Wizard spell
+									list. You may choose Charisma, Intelligence, or Wisdom as your
+									spellcasting ability for it.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Elf Weapon Training:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have proficiency with the longsword, shortsword, shortbow,
+									and longbow.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Extra Language:</strong></p>
+							</div>
+							<div class="col">
+								<p>You know 1 additional language of your choice.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<!-- this will select high elf as the character race -->
+						<a href="classes.html">
+							<button type="button" id="highElfSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Wood Elf Modal -->
+		<div
+			class="modal fade"
+			id="wood"
+			tabindex="-1"
+			aria-labelledby="woodLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="woodLabel">Wood Elf</h5>
+					</div>
+
+					<div class="modal-body">
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Ability Score Increase:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your Dexterity score increases by 2, and your Wisdom score
+									increases by 1.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Size:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your size is Medium.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Speed:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your base walking speed is increased to 35 ft.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Darkvision:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You can see in dim light within 60 feet of you as if it were
+									bright light, and in darkness as if it were dim light. You
+									can't discern color in darkness, only shades of gray.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Fey Ancestry:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have advantage on saving throws against being charmed, and
+									magic can't put you to sleep.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Trance:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Elves do not sleep. Instead they meditate deeply, remaining
+									semi-conscious, for 4 hours a day. After resting in this way,
+									you gain the same benefit a human would from 8 hours of sleep.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Keen Senses:</strong></p>
+							</div>
+							<div class="col">
+								<p>You have proficiency in the Perception skill.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Language:</strong></p>
+							</div>
+							<div class="col">
+								<p>You know Common and Elven.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Elf Weapon Training:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have proficiency with the longsword, shortsword, shortbow,
+									and longbow.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Mask of the Wild:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You can attempt to hide even when you are only lightly
+									obscured by foliage, heavy rain, falling snow, mist, and other
+									natural phenomena.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<!-- this will select wood elf as the character race -->
+						<a href="classes.html">
+							<button type="button" id="woodElfSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Half Elf Modal -->
+		<div
+			class="modal fade"
+			id="halfElf"
+			tabindex="-1"
+			aria-labelledby="halfElfLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="halfElfLabel">Half-Elf</h5>
+					</div>
+
+					<div class="modal-body">
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Ability Score Increase:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									Your Charisma score increases by 2, and 2 other ability scores
+									of your choice increase by 1.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Size:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your size is Medium.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Speed:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your base walking speed is 30 ft.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Darkvision:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You can see in dim light within 60 feet of you as if it were
+									bright light, and in darkness as if it were dim light. You
+									can't discern color in darkness, only shades of gray.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Fey Ancestry:</strong></p>
+							</div>
+							<div class="col">
+								<p>
+									You have advantage on saving throws against being charmed, and
+									magic can't put you to sleep.
+								</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Language:</strong></p>
+							</div>
+							<div class="col">
+								<p>You know Common, Elven, and 1 additional language.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Half-Elf Versatility:</strong></p>
+							</div>
+							<div class="col">
+								<p>You gain proficiency in 2 skills of your choice.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<!-- this will select half elf as the character race -->
+						<a href="classes.html">
+							<button type="button" id="halfElfSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Human Modal -->
+		<div
+			class="modal fade"
+			id="human"
+			tabindex="-1"
+			aria-labelledby="humanLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- modal title -->
+					<div class="modal-header">
+						<h5 class="modal-title" id="humanLabel">Human</h5>
+					</div>
+
+					<div class="modal-body">
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Ability Score Increase:</strong></p>
+							</div>
+							<div class="col">
+								<p>Each of your abilities increase by 1.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Size:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your size is Medium.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Speed:</strong></p>
+							</div>
+							<div class="col">
+								<p>Your base walking speed is 30 ft.</p>
+							</div>
+						</div>
+
+						<div class="row m-2 border border-dark">
+							<div class="col">
+								<p><strong>Language:</strong></p>
+							</div>
+							<div class="col">
+								<p>You know Common and 1 additional language.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<!-- this will select human as the character race -->
+						<a href="classes.html">
+							<button type="button" id="humanSelect" class="btn btn-primary">
+								Select
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
