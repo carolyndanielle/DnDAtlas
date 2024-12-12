@@ -77,5 +77,5 @@ DnD Atlas is a web-based tool designed to simplify the character creation and ma
 
 ### Collaborators
 - Team Lead & Back-End Developer: [Carolyn Dickenson](https://github.com/carolyndanielle)
-- Front-End Developer: [Patrick Sachleben]
+- Front-End Developer: [Patrick Sachleben](https://github.com/Patsax)
 - Back-End Developer: [Christopher Bautista (Daniel)](https://github.com/dbautista2)
