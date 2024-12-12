@@ -36,7 +36,7 @@ DnD Atlas is a web-based tool designed to simplify the character creation and ma
 
 1. Clone this repository:
 
-   - git clone <https://github.com/carolyndanielle/SDEV265.git>
+   - git clone <https://github.com/carolyndanielle/DnDAtlas>
    - cd DnD-Atlas
 
 2. Set up a virtual environment:
